@@ -14,6 +14,7 @@
 
 #import "ViewController.h"
 #import "PicAndTextViewController.h"
+#import "TouchViewController.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -27,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataSource = [[NSMutableArray alloc] initWithObjects:@"CoreText-图文混排", @"", nil];
+    self.dataSource = [[NSMutableArray alloc] initWithObjects:@"CoreText-图文混排", @"点击事件", nil];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.tableFooterView = [UIView new];
 }
@@ -50,6 +51,9 @@
     if (indexPath.row == 0) {
         
         [self.navigationController pushViewController:[[PicAndTextViewController alloc] init] animated:YES];
+    } else if (indexPath.row == 1) {
+        
+        [self.navigationController pushViewController:[[TouchViewController alloc] init] animated:YES];
     }
 }
 
